@@ -8,7 +8,7 @@ const users = [
     {
       name: "Ahmed",
       photo: "http:linkforAhmed",
-      scores: [1, 1, 1, 1]
+      scores: [1, 2, 2, 1]
     },
     {
       name: "dennis",
@@ -43,7 +43,6 @@ const users = [
       return bestMatches;
   }
   
-  
   function totalDifference(currScores, otherUserScores) {
     var tempArray = [];
   
@@ -51,12 +50,16 @@ const users = [
       var difference = Math.abs(currScores[i] - otherUserScores[i]);
       tempArray.push(difference);
     }
-  
     return tempArray.reduce((total, num) => total + num);
   }
   
   const bestMatch = findTotalScore(users);
-  
-  console.log('bestMatch', bestMatch);
-  //console.log(`Best match is ${bestMatch.name}!`);
-  
+    
+  function displayMatchInfo (bestMatch) {
+    bestMatch.forEach((userInfo) => {
+      console.log(`Best match is ${userInfo.name}!`)
+      console.log(userInfo.photo);
+    });
+  }
+
+  displayMatchInfo(bestMatch);
