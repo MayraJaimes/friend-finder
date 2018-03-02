@@ -21,45 +21,49 @@ const users = [
       scores: [1, 2, 2, 1]
     }
   ];
-  
-  const findTotalScore = usersArr => {
-    let [currentUser, ...otherUsers] = usersArr;
-    let bestMatches = [];
-    let lowestCompatibility = 1000;
-  
-    otherUsers.forEach((otherUser) => {
-        let compatibility = totalDifference(currentUser.scores, otherUser.scores);
-        otherUser.compatibility = compatibility;
-  
-        if (lowestCompatibility > compatibility) {
-            lowestCompatibility = compatibility;
-            bestMatches = [];
-            bestMatches.push(otherUser);
-      } else if (lowestCompatibility === compatibility) {
-            lowestCompatibility = compatibility;
-            bestMatches.push(otherUser);
-      }
-    });
-      return bestMatches;
-  }
-  
-  function totalDifference(currScores, otherUserScores) {
-    var tempArray = [];
-  
-    for (var i = 0; i < otherUserScores.length; i++) {
-      var difference = Math.abs(currScores[i] - otherUserScores[i]);
-      tempArray.push(difference);
-    }
-    return tempArray.reduce((total, num) => total + num);
-  }
-  
-  const bestMatch = findTotalScore(users);
-    
-  function displayMatchInfo (bestMatch) {
-    bestMatch.forEach((userInfo) => {
-      console.log(`Best match is ${userInfo.name}!`)
-      console.log(userInfo.photo);
-    });
-  }
 
-  displayMatchInfo(bestMatch);
+
+  module.exports = users;
+
+  
+  // const findTotalScore = usersArr => {
+  //   let [currentUser, ...otherUsers] = usersArr;
+  //   let bestMatches = [];
+  //   let lowestCompatibility = 1000;
+  
+  //   otherUsers.forEach((otherUser) => {
+  //       let compatibility = totalDifference(currentUser.scores, otherUser.scores);
+  //       otherUser.compatibility = compatibility;
+  
+  //       if (lowestCompatibility > compatibility) {
+  //           lowestCompatibility = compatibility;
+  //           bestMatches = [];
+  //           bestMatches.push(otherUser);
+  //     } else if (lowestCompatibility === compatibility) {
+  //           lowestCompatibility = compatibility;
+  //           bestMatches.push(otherUser);
+  //     }
+  //   });
+  //     return bestMatches;
+  // }
+  
+  // function totalDifference(currScores, otherUserScores) {
+  //   var tempArray = [];
+  
+  //   for (var i = 0; i < otherUserScores.length; i++) {
+  //     var difference = Math.abs(currScores[i] - otherUserScores[i]);
+  //     tempArray.push(difference);
+  //   }
+  //   return tempArray.reduce((total, num) => total + num);
+  // }
+  
+  // const bestMatch = findTotalScore(users);
+    
+  // function displayMatchInfo (bestMatch) {
+  //   bestMatch.forEach((userInfo) => {
+  //     console.log(`Best match is ${userInfo.name}!`)
+  //     console.log(userInfo.photo);
+  //   });
+  // }
+
+  // displayMatchInfo(bestMatch);
