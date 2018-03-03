@@ -1,21 +1,23 @@
-var users = [
-    {
-      name: "Mayra",
-      photo: "http:linkforMayra",
-      scores: [1, 1, 1, 1]
-    },
-    {
-      name: "dennis",
-      photo: "http:linkforMayra",
-      scores: [2, 3, 2, 2]
-    },
-    {
-      name: "Jon",
-      photo: "http:linkforMayra",
-      scores: [2, 3, 3, 2]
-    }
-  ];
+var friendsData = [];
 
-  module.exports = users;
 
+    // {
+    //   name: "Mayra",
+    //   photo: "http:linkforMayra",
+    //   scores: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    // },
+  //   {
+  //     name: "dennis",
+  //     photo: "http:linkforMayra",
+  //     scores: [2, 3, 2, 3, 2, 3, 2, 3, 2, 3]
+  //   },
+  //   {
+  //     name: "Jon",
+  //     photo: "http:linkforMayra",
+  //     scores: [2, 7, 2, 3, 2, 3, 2, 3, 2, 3]
+  //   }
+  // ];
+
+  module.exports = friendsData;
+  
   

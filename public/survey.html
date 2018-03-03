@@ -19,9 +19,6 @@
                 <div class="col-12 col-sm-12 col-md-12">
                 <h2>Survey Questions</h2>
                 <hr>
-
-                <form id="surveyForm">
-
                 
                 <h3><strong>About You</strong></h3>
                 <h4>Name (Required)</h4>
@@ -32,10 +29,12 @@
 
                 <hr>
 
+                <form id="surveyForm">
+
                     <div class="form-group">
                         <h3><strong>Question 1</strong></h3>
                         <label for="question1"><h4>Your mind is always buzzing with unexplored ideas and plans.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question1">
+                        <select class="w-25 p-3 form-control" name="question1" id="question1">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -48,7 +47,7 @@
                     <div class="form-group">
                         <h3><strong>Question 2</strong></h3>
                         <label for="question2"><h4>Generally speaking, you rely more on your experience than your imagination.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question2">
+                        <select class="w-25 p-3 form-control" name="question2" id="question2">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -61,7 +60,7 @@
                     <div class="form-group">
                         <h3><strong>Question 3</strong></h3>
                         <label for="question3"><h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question3">
+                        <select class="w-25 p-3 form-control" name="question3" id="question3">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -74,7 +73,7 @@
                     <div class="form-group">
                         <h3><strong>Question 4</strong></h3>
                         <label for="question4"><h4>You rarely do something just out of sheer curiosity.</h4> </label>
-                        <select class="w-25 p-3 form-control" id="question4">
+                        <select class="w-25 p-3 form-control" name="question4" id="question4">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -87,7 +86,7 @@
                     <div class="form-group">
                         <h3><strong>Question 5</strong></h3>
                         <label for="question5"><h4>People can rarely upset you.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question5">
+                        <select class="w-25 p-3 form-control" name="question5" id="question5">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -100,7 +99,7 @@
                     <div class="form-group">
                         <h3><strong>Question 6</strong></h3>
                         <label for="question6"><h4>It is often difficult for you to relate to other people’s feelings.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question6">
+                        <select class="w-25 p-3 form-control" name="question6" id="question6">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -113,7 +112,7 @@
                     <div class="form-group">
                         <h3><strong>Question 7</strong></h3>
                         <label for="question7"><h4>In a discussion, truth should be more important than people’s sensitivities.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question7">
+                        <select class="w-25 p-3 form-control" name="question7" id="question7">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -126,7 +125,7 @@
                     <div class="form-group">
                         <h3><strong>Question 8</strong></h3>
                         <label for="question8"><h4>You rarely get carried away by fantasies and ideas.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question8">
+                        <select class="w-25 p-3 form-control" name="question8" id="question8">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -139,7 +138,7 @@
                     <div class="form-group">
                         <h3><strong>Question 9</strong></h3>
                         <label for="question9"><h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question9">
+                        <select class="w-25 p-3 form-control" name="question9" id="question9">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -152,7 +151,7 @@
                     <div class="form-group">
                         <h3><strong>Question 10</strong></h3>
                         <label for="question10"><h4>You feel more energetic after spending time with a group of people.</h4></label>
-                        <select class="w-25 p-3 form-control" id="question10">
+                        <select class="w-25 p-3 form-control" name="question10" id="question10">
                             <option value="" disabled selected>Select your option</option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -178,40 +177,43 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript"> 
+
+        function getValues(){
+    
+            $("#surveyForm").submit(function(event) {
+                event.preventDefault();
+                
+                var scoreArray= [];
+                var newArray = $(this).serializeArray();
+    
+                for (let i = 0; i < newArray.length; i++) {
+                    scoreArray.push(parseInt(newArray[i].value));
+                }
+    
+                var newUser = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    score: scoreArray 
+                };
+    
+    
+                $.post("/api/friends", newUser)
+                    .then(function(data) {
+                        console.log(data);
+                        alert("Answers submitted");
+                        $("#name").val("");
+                        $("#photo").val("");
+                    });
+    
+        // });
+                })
+            }
+    
+        getValues();
+    
+    </script>
    
     </body>  
 </html>
-
-<script type="text/javascript">
-
-    $("#submit-btn").on("click", function(event) {
-      event.preventDefault();
-
-      var scoreNum= [];
-      var score;
-
-      for (let i = 1; i < 11; i++) {
-        score= $(`#question${i}`).val();
-        scoreNum.push(parseInt(score));
-      }
-
-      console.log(scoreNum);
-
-      var newUser = {
-        Name: $("#name").val().trim(),
-        Photo: $("#photo").val().trim()
-        // score: , 
-      };
-
-      console.log("newuser", newUser);
-
-      $.post("/api/friends", newUser,
-        function(data) {
-            alert("Answers submitted");
-
-          $("#name").val("");
-          $("#photo").val("");
-        });
-    });
-
-</script>
