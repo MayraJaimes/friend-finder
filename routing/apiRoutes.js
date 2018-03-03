@@ -1,16 +1,18 @@
 var friendsData = require("../data/friends");
 
 module.exports = function(app) {
+
   app.get("/api/friends", function(req, res) {
     res.json(friendsData);
+    console.log(friendsData);
   });
 
   app.post("/api/friends", function(req, res) {
-    console.log('req.body', req.body)
     var newuser = req.body;
     newuser.score = newuser.score.map(score => parseInt(score));
     friendsData.unshift(newuser);
-    res.json(newuser);
+    console.log(friendsData);
+
     const findTotalScore = friendsData => {
       let [currentUser, ...otherUsers] = friendsData;
       let bestMatches = [];
@@ -51,9 +53,10 @@ module.exports = function(app) {
         console.log(userInfo.photo);
 
       });
-    }
 
-    console.log(friendsData);
+      res.json(bestMatch);
+
+    }
   });
 
     
