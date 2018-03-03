@@ -49,6 +49,7 @@ module.exports = function(app) {
       bestMatch.forEach((userInfo) => {
         console.log(`Best match is ${userInfo.name}!`)
         console.log(userInfo.photo);
+
       });
     }
 

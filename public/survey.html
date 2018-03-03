@@ -162,19 +162,39 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-
-
                 </form>
-
                 <br>
-
-
 
                 <hr>
                 <footer class="footer">
                     <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/MayraJaimes/friend-finder">GitHub Repo</a></p>
                 </footer>
             </div>
+
+            <!-- Button trigger modal -->
+
+            <!-- data-toggle="modal" data-target=".bd-example-modal-lg" -->
+            
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Person you matched with:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h1 id="matchedName"> </h1>
+                            <p id="matchedPhoto"> </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+
         </div>
     </div>
 
@@ -191,23 +211,25 @@
                 for (let i = 0; i < newArray.length; i++) {
                     scoreArray.push(parseInt(newArray[i].value));
                 }
-    
+
                 var newUser = {
                     name: $("#name").val().trim(),
                     photo: $("#photo").val().trim(),
                     score: scoreArray 
                 };
-    
-    
+
                 $.post("/api/friends", newUser)
                     .then(function(data) {
-                        console.log(data);
-                        alert("Answers submitted");
+                        console.log("lookdata", data);
                         $("#name").val("");
-                        $("#photo").val("");
+                        $("#photo").val("");                        
+                        $('#surveyForm option').prop('selected', function() {
+                            return this.defaultSelected;
+                        });
+                        $("#matchedName").text(data.name);
+                        console.log("look", data.name);
+                        $('#myModal').modal('toggle');                                        
                     });
-    
-        // });
                 })
             }
     
