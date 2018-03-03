@@ -20,7 +20,7 @@
                 <h2>Survey Questions</h2>
                 <hr>
 
-                <form>
+                <form id="surveyForm">
 
                 
                 <h3><strong>About You</strong></h3>
@@ -162,10 +162,14 @@
                         </select>
                     </div>
 
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
+
+
                 </form>
 
                 <br>
-                <button type="submit" class="btn btn-primary btn-md" id="submit-btn"> Submit </button>
+
+
 
                 <hr>
                 <footer class="footer">
@@ -183,12 +187,23 @@
     $("#submit-btn").on("click", function(event) {
       event.preventDefault();
 
+      var scoreNum= [];
+      var score;
+
+      for (let i = 1; i < 11; i++) {
+        score= $(`#question${i}`).val();
+        scoreNum.push(parseInt(score));
+      }
+
+      console.log(scoreNum);
+
       var newUser = {
         Name: $("#name").val().trim(),
         Photo: $("#photo").val().trim()
+        // score: , 
       };
 
-      console.log(newUser);
+      console.log("newuser", newUser);
 
       $.post("/api/friends", newUser,
         function(data) {
@@ -198,21 +213,5 @@
           $("#photo").val("");
         });
     });
-
-    function runfriendsQuery() {
-        var currentURL = window.location.origin;
-  
-        $.ajax({ url: currentURL + "/api/friends", method: "GET" })
-        .then(function(friendsData) {
-          console.log("------------------------------------");
-          console.log("URL: " + currentURL + "/api/waitlist");
-          console.log("------------------------------------");
-          console.log(friendsData);
-          console.log("------------------------------------");
-  
-        });
-      }
-
-    runfriendsQuery();
 
 </script>

@@ -7,14 +7,20 @@ module.exports = function(app) {
 
   app.post("/api/friends", function(req, res) {
     var newuser = req.body;
-    console.log(newuser);
-    friendsData.push(newuser);
+    console.log("newuserR", newuser);
+    friendsData.unshift(newuser);
     res.json(newuser);
+console.log("friendsdataR", friendsData);
+    displayMatchInfo(bestMatch);
+
+
   });
+
+
 
     const findTotalScore = friendsData => {
     let [currentUser, ...otherUsers] = friendsData;
-    console.log(currentUser);
+    console.log("currentUser", currentUser);
     let bestMatches = [];
     let lowestCompatibility = 1000;
   
@@ -31,7 +37,7 @@ module.exports = function(app) {
             bestMatches.push(otherUser);
       }
     });
-    console.log(bestMatches);
+    console.log("bestmatchesR", bestMatches);
       return bestMatches;
   }
   
@@ -54,7 +60,6 @@ module.exports = function(app) {
     });
   }
 
-  displayMatchInfo(bestMatch);
 
     
 }

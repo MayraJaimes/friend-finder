@@ -12,7 +12,7 @@ var users = [
     {
       name: "Jon",
       photo: "http:linkforMayra",
-      scores: [2, 3, 2, 2]
+      scores: [2, 3, 3, 2]
     }
   ];
 
