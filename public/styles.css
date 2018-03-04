@@ -1,6 +1,75 @@
-
 body {
-    background: url("https://images.unsplash.com/photo-1511933801659-156d99ebea3e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cd08b80c202214cd9c9a73b83d72b843&auto=format&fit=crop&w=500&q=60");
+    background: url(https://images.unsplash.com/photo-1519109798364-ba17c14731df?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7d84aa14276a5ba55f8cca9cb4ed8907&auto=format&fit=crop&w=775&q=80);
     background-position: center;
     background-size: cover;
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+.survey {
+    background: #405f38;
+    color: black;
+}
+
+html {
+    height: 100%;
+}
+
+#content {
+    text-align: center;
+    padding-top: 25%;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 
+                 0px 8px 13px rgba(0, 0, 0, 0.1),
+                 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+.pageContent {
+    padding: 50px 150px 50px 150px;
+    background-color: white; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5em;
+}
+
+hr {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.title {
+    color: #405f38;
+    text-align: center;
+}
+
+#matchedPhoto {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
+#modal-title {
+    font-size: 40px;
+    text-align: center;
+}
+
+#matchedName {
+    font-size: 40px;
+    text-align: center;
+}
+
+a {
+    color: black;
+}
+
+.break {
+    padding: 0 10px 0 10px;
 }
