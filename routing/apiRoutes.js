@@ -4,14 +4,12 @@ module.exports = function(app) {
 
   app.get("/api/friends", function(req, res) {
     res.json(friendsData);
-    console.log(friendsData);
   });
 
   app.post("/api/friends", function(req, res) {
-    var newuser = req.body;
+    let newuser = req.body;
     newuser.score = newuser.score.map(score => parseInt(score));
     friendsData.unshift(newuser);
-    console.log(friendsData);
 
     const findTotalScore = friendsData => {
       let [currentUser, ...otherUsers] = friendsData;
@@ -35,10 +33,10 @@ module.exports = function(app) {
     }
     
     function totalDifference(currScores, otherUserScores) {
-      var tempArray = [];
+      let tempArray = [];
     
-      for (var i = 0; i < otherUserScores.length; i++) {
-        var difference = Math.abs(currScores[i] - otherUserScores[i]);
+      for (let i = 0; i < otherUserScores.length; i++) {
+        let difference = Math.abs(currScores[i] - otherUserScores[i]);
         tempArray.push(difference);
       }
       return tempArray.reduce((total, num) => total + num);
@@ -49,21 +47,9 @@ module.exports = function(app) {
 
     function displayMatchInfo (bestMatch) {
       bestMatch.forEach((userInfo) => {
-        console.log(`Best match is ${userInfo.name}!`)
-        console.log(userInfo.photo);
-
       });
-
       res.json(bestMatch);
-
     }
   });
-
-    
-    
-
-
-
-    
 }
 

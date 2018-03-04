@@ -6,6 +6,10 @@ body {
     color: white;
 }
 
+.surveyBody {
+    background: none;
+}
+
 .survey {
     background: #405f38;
     color: black;
@@ -24,7 +28,7 @@ html {
 }
 
 .pageContent {
-    padding: 50px 150px 50px 150px;
+    padding: 0px 50px 0px 50px;
     background-color: white; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -51,7 +55,8 @@ footer {
 }
 
 #matchedPhoto {
-    width: 60%;
+    max-width: 250px;
+    max-height: 250px;
     display: block;
     margin: 0 auto;
 }
@@ -72,4 +77,17 @@ a {
 
 .break {
     padding: 0 10px 0 10px;
+}
+
+.form-control {
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar {
+    margin-bottom: 0;
 }

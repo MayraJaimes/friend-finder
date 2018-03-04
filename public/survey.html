@@ -3,17 +3,38 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script
         src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css">.
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <title>Friend Finder</title>
     </head>
-    <body class="survey">
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home">Friend Match</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/home">Home</a></li>
+                    <li class="active"><a href="/survey">Survey</a></li>
+                </ul>
+
+                </div>
+            </div>
+        </nav>
+    <div class="survey">
         <div class= "container pageContent">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12">
@@ -174,31 +195,28 @@
             </div>   
         <footer class="footer">
             <p ><a href="/api/friends">API Friends List</a>  <span class="break">|</span>  <a href="https://github.com/MayraJaimes/friend-finder">GitHub Repo</a></p>
-        </footer>                   
-    </div>
+        </footer> 
+    </div>                  
+</div>
 
     <script type="text/javascript"> 
         function getValues(){
             $("#surveyForm").submit(function(event) {
                 event.preventDefault();
-                var scoreArray= [];
-                var newArray = $(this).serializeArray();
+                let scoreArray= [];
+                let newArray = $(this).serializeArray();
     
                 for (let i = 2; i < newArray.length; i++) {
                     scoreArray.push(parseInt(newArray[i].value));
                 }
 
-                var newUser = {
+                let newUser = {
                     name: $("#name").val().trim(),
                     photo: $("#photo").val(),
                     score: scoreArray 
                 };
 
-                console.log(newUser);
-
                 $.post("/api/friends", newUser, function(data) {
-                    console.log(data);
-
                     $("#matchedName").text(data[0].name);
                     $("#matchedPhoto").attr("src", data[0].photo);
                     $("#myModal").modal("toggle");
@@ -211,8 +229,7 @@
                 });
             })
         }
-
         getValues();
     </script>
-    </body>  
+</body>  
 </html>
