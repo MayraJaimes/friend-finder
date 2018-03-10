@@ -1,8 +1,8 @@
-# Friend Finder - Node and Express Servers
+# Friend Match - Node and Express Servers
 
 ### Overview
 
-Friend Finer is a compatibility-based application similar to dating apps but for people trying to make a friend. This full-stack site will takes in the results from the users' surveys and compares their answers with those from other users that have submitted their answers. The app then displays the name and picture of the user with the best overall match. 
+Friend Match is a compatibility-based application similar to dating apps but for people trying to make a friend. This full-stack site will takes in the results from the users' surveys and compares their answers with those from other users that have submitted their answers. The app then displays the name and picture of the user with the best overall match. 
 
 1. The survey has 10 questions. Each answer is on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
 
