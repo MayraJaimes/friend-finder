@@ -21,6 +21,7 @@ Once the best match has been found, the results are displayed as a modal pop-up.
 
 * HTML5
 * CSS
+* Javscript
 * Node.js
 * Express
 * MySQL
